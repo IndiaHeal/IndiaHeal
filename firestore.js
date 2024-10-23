@@ -115,19 +115,25 @@ function createHospitalCard(data){
     innerContainer2.appendChild(overlayname);
      
     profileImage.style.cursor = 'pointer';
-    profileImage.addEventListener('mouseover', () => {
-      
-        profileImage.style.cursor = 'pointer';
- overlay.style.visibility = 'visible';
- overlayname.style.visibility = 'visible';
+//     innerContainer2.addEventListener('mouseover', () => {
+//         overlayname.style.cursor = 'pointer';
+//         overlay.style.visibility = 'visible';
+//         overlay.style.cursor = "pointer"
+//         overlayname.style.visibility = 'visible';
   
-});
+// });
 
-profileImage.addEventListener('mouseout', () => {
-    profileImage.style.cursor = 'pointer';
- overlay.style.visibility = 'hidden';
- overlayname.style.visibility = 'hidden';
-});
+        // overlayname.style.cursor = 'pointer';
+        // overlay.style.visibility = 'visible';
+        // overlay.style.cursor = "pointer"
+        // overlayname.style.visibility = 'visible';
+
+// innerContainer2.addEventListener('mouseout', () => {
+//     overlayname.style.cursor = "pointer"
+//     profileImage.style.cursor = 'pointer';
+//  overlay.style.visibility = 'hidden';
+//  overlayname.style.visibility = 'hidden';
+// });
 }
 
 
@@ -173,19 +179,24 @@ function createCountryCard(data){
     innerContainer2.appendChild(overlayname);
      
     profileImage.style.cursor = 'pointer';
-    profileImage.addEventListener('mouseover', () => {
+//     innerContainer2.addEventListener('mouseover', () => {
       
-        profileImage.style.cursor = 'pointer';
- overlay.style.visibility = 'visible';
- overlayname.style.visibility = 'visible';
+//         overlayname.style.cursor = 'pointer';
+//         overlay.style.cursor = 'pointer';
+//         overlay.style.visibility = 'visible';
+//         overlayname.style.visibility = 'visible';
   
-});
-
-profileImage.addEventListener('mouseout', () => {
-    profileImage.style.cursor = 'pointer';
- overlay.style.visibility = 'hidden';
- overlayname.style.visibility = 'hidden';
-});
+// });
+        // overlayname.style.cursor = 'pointer';
+        // overlay.style.cursor = 'pointer';
+        // overlay.style.visibility = 'visible';
+        // overlayname.style.visibility = 'visible';
+// innerContainer2.addEventListener('mouseout', () => {
+//     overlayname.style.cursor = 'pointer';
+//     overlay.style.cursor = 'pointer';
+//     overlay.style.visibility = 'hidden';
+//     overlayname.style.visibility = 'hidden';
+// });
 
 }
 

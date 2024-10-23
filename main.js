@@ -63,7 +63,7 @@ setInterval(() => {
     const scrollWidth = scrollContainer.scrollWidth;
     const clientWidth = scrollContainer.clientWidth;
     const scrollLeft = scrollContainer.scrollLeft;
-     console.log(scrollWidth,"uppper");
+      
      
     // Smooth scrolling behavior
     scrollContainer.style.scrollBehavior = 'smooth';
@@ -121,13 +121,14 @@ scrollContainer.addEventListener("wheel", (evt) => {
 });
 
 nextBtn.addEventListener("click", ()=>{
+    
     scrollContainer.style.scrollBehavior = 'smooth';
-    scrollContainer.scrollLeft += "300";
+    scrollContainer.scrollLeft += 300;
 });
 
 backBtn.addEventListener("click", ()=>{
     scrollContainer.style.scrollBehavior = 'smooth';
-    scrollContainer.scrollLeft -= "300";
+    scrollContainer.scrollLeft -= 300;
 });
 
 let scrollContainer1 = document.querySelector('.galleryreview');
