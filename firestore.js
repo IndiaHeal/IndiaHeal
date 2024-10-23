@@ -230,15 +230,24 @@ function createPost(postData) {
     // Create the inner container with fixed width
     const innerContainer = document.createElement("div");
     innerContainer.style.width = "100%";
+    innerContainer.style.position = "relative"
     galleryReview.appendChild(innerContainer);
   
     // Create the review card element
     const reviewCard = document.createElement("span");
     reviewCard.classList.add("reviewCard");
     innerContainer.appendChild(reviewCard);
-  
+    const reviewBackgroundImageSpan = document.createElement("span");
+    reviewBackgroundImageSpan.classList.add('backgroundIMage')
+    const reviewBackgroundIMage = document.createElement("img");
+    reviewBackgroundIMage.src = "https://firebasestorage.googleapis.com/v0/b/india-heals.appspot.com/o/svgIcon%2Fspeech-bubble-1.svg?alt=media&token=c8f7703a-9097-4ca5-8830-c0695647d6f8"
+    reviewBackgroundImageSpan.appendChild(reviewBackgroundIMage)
+    innerContainer.appendChild(reviewBackgroundImageSpan);
+
     // Create the review text element with dynamic width
     const reviewText = document.createElement("span");
+   
+    
     reviewText.classList.add("reviewText");
     reviewText.style.width =  "80%"; // Handle optional text width
     reviewText.textContent = postData.Feedback;

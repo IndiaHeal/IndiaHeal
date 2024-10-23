@@ -314,6 +314,10 @@ html {
 .upperCard::-webkit-scrollbar {
     display: none;
 }
+
+body::-webkit-scrollbar {
+    display: none;
+}
 .upperCard div{
      
     display: grid;
@@ -940,6 +944,12 @@ img:hover{
     padding: 16px;
 }
 
+.backgroundIMage{
+    position: absolute;
+    left: 44%;
+    top: -24%;
+}
+
 #target h1 {
   max-width: 500px;
   font-size: 1.5;
@@ -1018,6 +1028,13 @@ img:hover{
 
 
 @media (max-width: 640px) {
+    .reviewText{
+        font-size: 19px;
+     }
+
+     .nameText{
+        font-size: 19px;
+      }
 
     .world{
         position: absolute;
@@ -1361,3 +1378,86 @@ img:hover{
     position: relative;
   }
  
+  .marginLeft{
+    margin-left: 35px;
+  }
+
+  .marginright{
+    margin-right: 35px;
+  }
+  @media ((max-width: 1600px) and (min-width:640px)) {
+    .bodydiv2{
+        margin-top: 45px;
+        display: flex;
+        gap: 70px;
+        padding: 35px;
+        border-radius: 20px ;
+        opacity: 0.2px;
+        box-shadow: 0px 4px 4px 0px #0000004D;
+        box-shadow: 0px 8px 12px 6px #00000026;
+        flex-wrap: wrap;
+    }
+    .div3Heading{
+        font-family: Inter;
+        font-size: 38px;
+        
+    }
+
+    .cards{
+        font-size: 19px;
+        height: 70px;
+    }
+
+    .headerTab{
+        gap: 23px;
+    }
+
+    .bodydiv1child{
+        margin-top: 200px;
+    }
+
+    .div1{
+        font-size: 54px;
+    }
+
+    .div1_2{
+         
+        font-size: 16px;
+    }
+
+    .fontbodydiv2{
+      
+        font-size: 20px;
+         
+    }
+    .fontcountry{
+         
+        font-size: 19px;
+         
+    
+    }
+    .welcome{
+        font-size: 38px;
+        line-height: 48.09px;
+    }
+
+    .paragarph{
+        font-size: 19px;
+    }
+
+    .nameText{
+      font-size: 19px;
+    }
+
+    .reviewText{
+       font-size: 19px;
+    }
+
+    .backButton{
+        left: 49px;
+    }
+
+    .nextButton{
+        right: 49px;
+    }
+  }
