@@ -7,14 +7,14 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebas
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyAFPCUkGpS4euAGJrePOkCmXXffKAk3EpM",
-  authDomain: "healindia-24e99.firebaseapp.com",
-  projectId: "healindia-24e99",
-  storageBucket: "healindia-24e99.appspot.com",
-  messagingSenderId: "558415657727",
-  appId: "1:558415657727:web:6a9e7195aedad138c56aca",
-  measurementId: "G-8W84V5KKT1"
-};
+    apiKey: "AIzaSyA6mHfuXnw7br8165vtuAaNVJZYpFR9H8M",
+    authDomain: "india-heals.firebaseapp.com",
+    projectId: "india-heals",
+    storageBucket: "india-heals.appspot.com",
+    messagingSenderId: "675812644179",
+    appId: "1:675812644179:web:e4e12a2d8251ebd4d63da6",
+    measurementId: "G-4F538300E9"
+  };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -28,14 +28,19 @@ async function getServices(db) {
     return serviceData;
 }
 
-let serviceData = await getServices(db) 
-serviceData[0]['sickness '].forEach((data,index)=>{
-     if(index <= Math.abs((serviceData[0]['sickness '].length)/2) ){
+try {
+    let serviceData = await getServices(db) 
+    serviceData[0]['sickness'].forEach((data,index)=>{
+     if(index <= Math.abs((serviceData[0]['sickness'].length)/2) ){
         createServiceCard(data)
      }else{
         createServiceCardLower(data)
      }
 })
+} catch (error) {
+    console.log(error,"Services");
+    
+}
  
 
 
@@ -75,10 +80,15 @@ return cityList;
 
 
 
-let hospitalData = await getHospitals(db) 
-hospitalData.forEach(element => {
-    createHospitalCard(element)
-});
+try {
+    let hospitalData = await getHospitals(db) 
+    hospitalData.forEach(element => {
+        createHospitalCard(element)
+    }); 
+} catch (error) {
+    console.log(error,"hospitals");
+    
+}
 
 
 function createHospitalCard(data){
@@ -128,11 +138,16 @@ async function getCountries(db) {
     return countriesData;
 }
 
-let countriesData = await getCountries(db) 
-countriesData.forEach(element => {
+try {
+    let countriesData = await getCountries(db) 
+    countriesData.forEach(element => {
     createCountryCard(element)
    
 });
+} catch (error) {
+    console.log(error,"Countries");
+    
+}
 
 
 function createCountryCard(data){
@@ -183,13 +198,18 @@ async function getUsersFeedback(db) {
     return feedbackData;
 }
 
-let usersFeedbackData = await getUsersFeedback(db) 
-usersFeedbackData.forEach(element => {
+try {
+    let usersFeedbackData = await getUsersFeedback(db) 
+    usersFeedbackData.forEach(element => {
     console.log(element,"sanjay kushwah");
     
     createPost(element)
    
 });
+} catch (error) {
+     console.log(error,"user feedback");
+     
+}
 
 
 function createPost(postData) {

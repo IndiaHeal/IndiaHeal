@@ -895,7 +895,7 @@ text-align: left;
 .name {
     position: absolute;
     font-family: Inter;
-    top: 90%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
