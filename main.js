@@ -121,7 +121,7 @@ scrollContainer.addEventListener("wheel", (evt) => {
 });
 
 nextBtn.addEventListener("click", ()=>{
-    
+  
     scrollContainer.style.scrollBehavior = 'smooth';
     scrollContainer.scrollLeft += 300;
 });
@@ -423,7 +423,7 @@ appointmentForm.addEventListener('submit', (event) => {
   let gender = document.getElementById('genderId').value
   let department = document.getElementById('deparmentId').value
  var templateParams = {
-  to_name: 'James',
+  to_name: 'India Heals',
   from_name :`${name}`,
   message: {
     name:name,
@@ -436,7 +436,7 @@ appointmentForm.addEventListener('submit', (event) => {
 
 };
 
-emailSystem.send('default_service', 'template_z6bc06m', templateParams).then(
+emailSystem.send("service_ode5rwg","template_x52ud0k", templateParams).then(
   (response) => {
     document.getElementById('contactUsIdButton').innerHTML = "Contact Us Sent"
      alert("Email Sent Successfully")
