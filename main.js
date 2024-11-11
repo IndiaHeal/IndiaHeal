@@ -421,7 +421,7 @@ appointmentForm.addEventListener('submit', (event) => {
   let phoneNumber = document.getElementById('phoneNumber').value
   let age = document.getElementById('ageDropdown').value
   let gender = document.getElementById('genderId').value
-  let department = document.getElementById('deparmentId').value
+  let disease = document.getElementById('deparmentId').value
  var templateParams = {
   to_name: 'India Heals',
   from_name :`${name}`,
@@ -431,7 +431,7 @@ appointmentForm.addEventListener('submit', (event) => {
     phoneNumber:phoneNumber,
     age:age,
     gender:gender,
-    department:department
+    disease:disease
   },
 
 };
@@ -446,7 +446,7 @@ emailSystem.send("service_ode5rwg","template_x52ud0k", templateParams).then(
      let phoneNumber = document.getElementById('phoneNumber').value = ""
      let age = document.getElementById('ageDropdown').value = "Select Age"
      let gender = document.getElementById('genderId').value = "Gender"
-     let department = document.getElementById('deparmentId').value = "Choose Department"
+     let disease = document.getElementById('deparmentId').value = ""
   },
   (error) => {
     alert('FAILED...', error);
