@@ -24,20 +24,20 @@
 //     return data
 //   })
 //   console.log(result,"snajay kusdfhsdjfh");
-let scrollContainerservice = document.querySelector('.upperCard'); 
-scrollContainerservice.addEventListener("wheel", (evt) => {
-    evt.preventDefault();
-    scrollContainerservice.scrollLeft += evt.deltaY;
-    scrollContainerservice.style.scrollBehavior = 'auto';
-});
+// let scrollContainerservice = document.querySelector('.upperCard'); 
+// scrollContainerservice.addEventListener("wheel", (evt) => {
+//     evt.preventDefault();
+//     scrollContainerservice.scrollLeft += evt.deltaY;
+//     scrollContainerservice.style.scrollBehavior = 'auto';
+// });
 
 
-let scrollContainerserviceLower = document.querySelector('.lowerCard'); 
-scrollContainerserviceLower.addEventListener("wheel", (evt) => {
-    evt.preventDefault();
-    scrollContainerserviceLower.scrollLeft += evt.deltaY;
-    scrollContainerserviceLower.style.scrollBehavior = 'auto';
-});
+// let scrollContainerserviceLower = document.querySelector('.lowerCard'); 
+// scrollContainerserviceLower.addEventListener("wheel", (evt) => {
+//     evt.preventDefault();
+//     scrollContainerserviceLower.scrollLeft += evt.deltaY;
+//     scrollContainerserviceLower.style.scrollBehavior = 'auto';
+// });
 
 // setTimeout(() => {
     
@@ -55,56 +55,56 @@ scrollContainerserviceLower.addEventListener("wheel", (evt) => {
 // },1000)
 
 
-let isScrollingRight = true;  // Initial scroll direction (right)
-let scrollIntervalId;
-setInterval(() => {
-    const scrollContainer = scrollContainerservice;  // Assuming this is the element
-    // Get scroll dimensions and current position
-    const scrollWidth = scrollContainer.scrollWidth;
-    const clientWidth = scrollContainer.clientWidth;
-    const scrollLeft = scrollContainer.scrollLeft;
+// let isScrollingRight = true;  // Initial scroll direction (right)
+// let scrollIntervalId;
+// setInterval(() => {
+//     const scrollContainer = scrollContainerservice;  // Assuming this is the element
+//     // Get scroll dimensions and current position
+//     const scrollWidth = scrollContainer.scrollWidth;
+//     const clientWidth = scrollContainer.clientWidth;
+//     const scrollLeft = scrollContainer.scrollLeft;
       
      
-    // Smooth scrolling behavior
-    scrollContainer.style.scrollBehavior = 'smooth';
+//     // Smooth scrolling behavior
+//     scrollContainer.style.scrollBehavior = 'smooth';
 
-    // Determine scroll direction based on current position and direction flag
-    if (isScrollingRight && Math.ceil(scrollLeft + clientWidth) >= scrollWidth) {
-      isScrollingRight = false;
-    } else if (!isScrollingRight && scrollLeft === 0) {
-      isScrollingRight = true;
-    }
+//     // Determine scroll direction based on current position and direction flag
+//     if (isScrollingRight && Math.ceil(scrollLeft + clientWidth) >= scrollWidth) {
+//       isScrollingRight = false;
+//     } else if (!isScrollingRight && scrollLeft === 0) {
+//       isScrollingRight = true;
+//     }
 
-    // Update scroll position based on direction
-    scrollContainer.scrollLeft += isScrollingRight ? 100 : -100;
-  }, 1000);
+//     // Update scroll position based on direction
+//     scrollContainer.scrollLeft += isScrollingRight ? 100 : -100;
+//   }, 1000);
 
 
-  let isScrollingRightlower = true;  // Initial scroll direction (right)
+//   let isScrollingRightlower = true;  // Initial scroll direction (right)
  
-setInterval(() => {
-    const scrollContainers = scrollContainerserviceLower;  // Assuming this is the element
-    // Get scroll dimensions and current position
-    const scrollWidths = scrollContainers.scrollWidth;
-    const clientWidths = scrollContainers.clientWidth;
-    const scrollLefts = scrollContainers.scrollLeft;
+// setInterval(() => {
+//     const scrollContainers = scrollContainerserviceLower;  // Assuming this is the element
+//     // Get scroll dimensions and current position
+//     const scrollWidths = scrollContainers.scrollWidth;
+//     const clientWidths = scrollContainers.clientWidth;
+//     const scrollLefts = scrollContainers.scrollLeft;
 
-    // Smooth scrolling behavior
-    scrollContainers.style.scrollBehavior = 'smooth';
+//     // Smooth scrolling behavior
+//     scrollContainers.style.scrollBehavior = 'smooth';
    
     
-    // Determine scroll direction based on current position and direction flag
-    if (isScrollingRightlower && Math.ceil(scrollLefts + clientWidths) >= scrollWidths) {
+//     // Determine scroll direction based on current position and direction flag
+//     if (isScrollingRightlower && Math.ceil(scrollLefts + clientWidths) >= scrollWidths) {
          
         
-        isScrollingRightlower = false;
-    } else if (!isScrollingRightlower && scrollLefts === 0) {
-        isScrollingRightlower = true;
-    }
+//         isScrollingRightlower = false;
+//     } else if (!isScrollingRightlower && scrollLefts === 0) {
+//         isScrollingRightlower = true;
+//     }
 
-    // Update scroll position based on direction
-    scrollContainers.scrollLeft += isScrollingRightlower ? 100 : -100;
-  }, 1000);
+//     // Update scroll position based on direction
+//     scrollContainers.scrollLeft += isScrollingRightlower ? 100 : -100;
+//   }, 1000);
 
 
 

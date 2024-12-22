@@ -445,7 +445,17 @@ body::-webkit-scrollbar {
     flex: none;
 }
 
- 
+  .tooltip {
+    display:none ;
+    position: absolute;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 3px;
+    z-index: 9999; /* Ensure tooltip appears on top */
+  }
+
+
 .galleryreview div img {
     width: 315px;
     height: 340px;
@@ -481,6 +491,11 @@ body::-webkit-scrollbar {
    opacity: 1;
 }
 
+
+.serviceImage{
+    margin-bottom: 33px;
+}
+
 .backButton{
     width: 60px;
     height: 60px;
@@ -496,6 +511,7 @@ body::-webkit-scrollbar {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 85%;
 }
 
 .nameText{
@@ -508,16 +524,46 @@ text-align: center;
 
 }
 
+
+.parentReview{
+    display: flex !important;
+    width: 50%;
+    position: relative;
+    align-items: center;
+    justify-content: end;
+}
+
+.reviewTextLimit{
+    width: 80%;
+    /* width: 100px; */
+    /* white-space: nowrap; */
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}
+ 
+.innerContainer{
+    width: 100%;
+    position: relative;
+    display: flex !important;
+    flex-direction: row-reverse;
+    height: 560px;
+}
+
 .reviewText{
     font-family: Inter;
 font-size: 24px;
 font-weight: 400;
 line-height: 29.05px;
 text-align: center;
-margin-bottom: 110px;
+margin-bottom: 40px;
 padding-left: 20px;
     padding-right: 20px;
- 
+ z-index: 100;
 
 }
 
@@ -994,9 +1040,33 @@ img:hover{
   text-align: center;
 }
 
+.cardService{
+    z-index: 10;
+    width: 295px;
+    height: 320px;
+    gap: 0px;
+    border-radius: 12px;
+    opacity: 0px;
+    background-color: white;
+    padding: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-around;
+    
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); 
+}
+.serviceName{
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29.05px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
+}
 .card2{
-    box-shadow: var(--sds-size-depth-0) var(--sds-size-depth-100) var(--sds-size-depth-100) var(--sds-size-depth-negative-100) var(--sds-color-black-100);
-    box-shadow: var(--sds-size-depth-0) var(--sds-size-depth-400) var(--sds-size-depth-800) var(--sds-size-depth-negative-100) var(--sds-color-black-200);
     width: 240px;
     height: 300px;
     background-color: white;
@@ -1006,6 +1076,7 @@ img:hover{
     flex-direction: column;
     gap: 17px;
     align-items: center;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); 
 }
 
 .card2Heading{
@@ -1042,9 +1113,28 @@ img:hover{
     top: 23%;
 }
 
+.youtubeI{
+    width: 50%;
+    position: relative;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
 .serviceCard{
     margin-top: 110px;
+    display: flex;
+    margin-top: 110px;
+    display: grid;
+    justify-content: center;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(auto-fill, 300px);
+    gap: 30px;
+    
 }
+
+    
+ 
 /* .firstImage{
   
     width: 100%;
@@ -1059,6 +1149,41 @@ img:hover{
 
 
 @media (max-width: 640px) {
+
+
+    .parentReview{
+        display: flex !important;
+        width: 100%;
+        position: relative;
+        align-items: center;
+        justify-content: end;
+    }
+    .reviewCard{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .youtubeI{
+        width:100%;
+        position: relative;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        height: 300px !important;
+
+    }
+
+    .innerContainer{
+        width: 100%;
+        position: relative;
+        display: flex !important;
+        flex-direction: column;
+        height: auto !important; 
+    }
+
     .logoSubText{
         font-family: Inter;
     font-size: 10px;
@@ -1461,6 +1586,13 @@ img:hover{
   }
   @media ((max-width: 1600px) and (min-width:640px)) {
     
+    .innerContainer{
+        width: 100%;
+        position: relative;
+        display: flex !important;
+        flex-direction: row-reverse;
+        height: 450px;
+    }
     .logotext{
         font-family: Inter;
         font-size: 17px;

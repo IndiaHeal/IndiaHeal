@@ -30,13 +30,10 @@ async function getServices(db) {
 
 try {
     let serviceData = await getServices(db) 
-    serviceData[0]['sickness'].forEach((data,index)=>{
-     if(index <= Math.abs((serviceData[0]['sickness'].length)/2) ){
+    serviceData.forEach((data)=>{
         createServiceCard(data)
-     }else{
-        createServiceCardLower(data)
-     }
-})
+    })
+    
 } catch (error) {
     console.log(error,"Services");
     
@@ -47,27 +44,26 @@ try {
  
 
 function createServiceCard(data){
-    const scrollContainer =  document.getElementById('upperCardId')
+    const serviceDiv = document.getElementById('serviceCardId')
+    const parentdiv =  document.createElement("div");
+    parentdiv.classList.add('cardService')
     const innerContainer = document.createElement("div");
-    innerContainer.innerHTML = data
-    innerContainer.classList.add("cards");
-    if(data == 'IVF Treatment'){
-        innerContainer.classList.add("ivf"); 
-    }
-    scrollContainer.appendChild(innerContainer);
+    const profileImage = document.createElement("img");
+     
+    // profileImage.classList.add("profileImage");
+    profileImage.src = data.url || "https://firebasestorage.googleapis.com/v0/b/heal-india.appspot.com/o/mountain.png?alt=media&token=e9353c9e-b4c6-46f6-859b-76e0ab2ab381";
+    innerContainer.appendChild(profileImage)
+     
+    parentdiv.appendChild(innerContainer)
+    const innerContainer2 = document.createElement("div");
+    innerContainer2.innerHTML = data.name
+    innerContainer2.classList.add('serviceName')
+    parentdiv.appendChild(innerContainer2)
+    serviceDiv.appendChild(parentdiv)
+     
 }
 
-function createServiceCardLower(data){
-    const scrollContainer =  document.getElementById('lowerCardId')
-    const innerContainer = document.createElement("div");
-    innerContainer.innerHTML = data
-    
-    if(data == 'IVF Treatment'){
-        innerContainer.classList.add("ivf"); 
-    }
-    innerContainer.classList.add("cards");
-    scrollContainer.appendChild(innerContainer);
-}
+ 
 
  
 async function getHospitals(db) {
@@ -222,37 +218,80 @@ try {
      
 }
 
+function createYouTubeIframe(videoURl) {
+    // Create the iframe element
+    const aspectRatio = 9 / 16;
+    const iframe = document.createElement('iframe');
+    iframe.width = '80%';
+    iframe.height = '70%';
+    iframe.style.borderRadius = '15px';
+    iframe.src = videoURl;
+    iframe.frameBorder = 0;
+    iframe.allowFullscreen = true;
+  
+    // Return the created iframe element
+    return iframe;
+  }
+
+
 
 function createPost(postData) {
     // Create the main container element
     const galleryReview =  document.getElementById('userFeedback')
   
+
+    // parent inner container for youtube video
+    const parentReview = document.createElement('div')
+    parentReview.classList.add('parentReview')
     // Create the inner container with fixed width
     const innerContainer = document.createElement("div");
-    innerContainer.style.width = "100%";
-    innerContainer.style.position = "relative"
+    innerContainer.classList.add('innerContainer')
+    // parentReview.appendChild(innerContainer)
     galleryReview.appendChild(innerContainer);
   
+    const containerYoutube = document.createElement('div');
+    containerYoutube.classList.add('youtubeI')
+    // youtube video iframe
+    const iframe = createYouTubeIframe(postData.youtubeUrl)
+    containerYoutube.appendChild(iframe)
+
+    innerContainer.appendChild(containerYoutube)
+//     parentReview.appendChild(iframe)
     // Create the review card element
     const reviewCard = document.createElement("span");
     reviewCard.classList.add("reviewCard");
-    innerContainer.appendChild(reviewCard);
+    parentReview.appendChild(reviewCard);
     const reviewBackgroundImageSpan = document.createElement("span");
     reviewBackgroundImageSpan.classList.add('backgroundIMage')
     const reviewBackgroundIMage = document.createElement("img");
     reviewBackgroundIMage.src = "https://firebasestorage.googleapis.com/v0/b/india-heals.appspot.com/o/svgIcon%2Fspeech-bubble-1.svg?alt=media&token=c8f7703a-9097-4ca5-8830-c0695647d6f8"
     reviewBackgroundImageSpan.appendChild(reviewBackgroundIMage)
-    innerContainer.appendChild(reviewBackgroundImageSpan);
-
+    parentReview.appendChild(reviewBackgroundImageSpan);
+    
+    innerContainer.appendChild(parentReview)
     // Create the review text element with dynamic width
     const reviewText = document.createElement("span");
-   
+    const tooptip = document.createElement("div");
     
+    tooptip.textContent = postData.Feedback
+    tooptip.classList.add('tooltip')
+    tooptip.style.display = 'none'
     reviewText.classList.add("reviewText");
-    reviewText.style.width =  "80%"; // Handle optional text width
+    reviewText.classList.add('reviewTextLimit') // Handle optional text width
     reviewText.textContent = postData.Feedback;
+    
+    // reviewText.data-full-text = postData.Feedback
     reviewCard.appendChild(reviewText);
-  
+    reviewCard.appendChild(tooptip);
+     
+    reviewText.addEventListener('mouseover', () => {
+        tooptip.style.display = 'block';
+      });
+      
+      reviewText.addEventListener('mouseout', () => {
+        tooptip.style.display = 'none';
+      });
+    
     // Create the profile image element with dynamic image URL
     const profileImage = document.createElement("img");
     profileImage.classList.add("profileImage");
@@ -267,6 +306,9 @@ function createPost(postData) {
   
    
   }
+
+ 
+const youtubeIframe = createYouTubeIframe(videoId, width, height);
 
 
 
