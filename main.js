@@ -135,16 +135,35 @@ let scrollContainer1 = document.querySelector('.galleryreview');
 let backBtn1 = document.getElementById("backBtnreview");
 let nextBtn1 = document.getElementById("nextBtnreview");
 
+// import { usersFeedbackData } from "./firestore.js";
+
 scrollContainer1.addEventListener("wheel", (evt) => {
     evt.preventDefault();
     scrollContainer1.scrollLeft += evt.deltaY;
     scrollContainer1.style.scrollBehavior = 'auto';
 });
 
-nextBtn1.addEventListener("click", ()=>{
-    scrollContainer1.style.scrollBehavior = 'smooth';
-    scrollContainer1.scrollLeft += 1900;
+nextBtn1.addEventListener("click", () => {
+  scrollContainer1.style.scrollBehavior = "smooth";
+  scrollContainer1.scrollLeft += 1900;
+
+  // Calculate the threshold for the second last element
+  const secondLastThreshold =
+    scrollContainer1.scrollWidth -
+    scrollContainer1.clientWidth -
+    scrollContainer1.children[scrollContainer1.children.length - 1].offsetWidth;
+
+  if (scrollContainer1.scrollLeft >= secondLastThreshold) {
+    usersFeedbackData.forEach((element) => {
+      try {
+        createPost(element);
+      } catch (error) {
+        console.error("Error creating post:", error);
+      }
+    });
+  }
 });
+
 
 backBtn1.addEventListener("click", ()=>{
     scrollContainer1.style.scrollBehavior = 'smooth';
@@ -244,14 +263,18 @@ let slideUp = (target, duration=500) => {
   
 let speedAnimation = 400;
 let targetId = document.getElementById("target");
+let icon1 = document.getElementById('icon1')
 
 let flag = true
 let slideBtnClick = (id, sl) => document.getElementById(id).addEventListener('click', () =>{ 
+   
     sl(targetId, speedAnimation)
     if(flag){
         document.getElementById('triggerToggle').style.borderRadius= "8px 8px 0px 0px"
         flag= false
+        icon1.style.transform = "rotate(180deg)"; 
     }else{
+      icon1.style.transform = "rotate(0deg)"
         flag = true
         document.getElementById('triggerToggle').style.borderRadius= "8px"
     }
@@ -263,14 +286,17 @@ let slideBtnClick = (id, sl) => document.getElementById(id).addEventListener('cl
 slideBtnClick('triggerToggle', slideToggle);
 
 let targetId1 = document.getElementById("target1");
+let icon2 = document.getElementById('icon2')
 
 let flag1 = true
 let slideBtnClick1 = (id, sl) => document.getElementById(id).addEventListener('click', () =>{ 
     sl(targetId1, speedAnimation)
     if(flag1){
+      icon2.style.transform = "rotate(180deg)"; 
         document.getElementById('triggerToggle1').style.borderRadius= "8px 8px 0px 0px"
         flag1= false
     }else{
+      icon2.style.transform = "rotate(0deg)"
         flag1 = true
         document.getElementById('triggerToggle1').style.borderRadius= "8px"
     }
@@ -282,14 +308,17 @@ let slideBtnClick1 = (id, sl) => document.getElementById(id).addEventListener('c
 slideBtnClick1('triggerToggle1', slideToggle);
 
 let targetId2 = document.getElementById("target2");
+let icon3 = document.getElementById('icon3')
 
 let flag2 = true
 let slideBtnClick2 = (id, sl) => document.getElementById(id).addEventListener('click', () =>{ 
     sl(targetId2, speedAnimation)
     if(flag2){
+        icon3.style.transform = "rotate(180deg)"; 
         document.getElementById('triggerToggle2').style.borderRadius= "8px 8px 0px 0px"
         flag2= false
     }else{
+      icon3.style.transform = "rotate(0deg)"
         flag2 = true
         document.getElementById('triggerToggle2').style.borderRadius= "8px"
     }
@@ -301,14 +330,17 @@ let slideBtnClick2 = (id, sl) => document.getElementById(id).addEventListener('c
 slideBtnClick2('triggerToggle2', slideToggle);
 
 let targetId3 = document.getElementById("target3");
+let icon4 = document.getElementById('icon4')
 
 let flag3 = true
 let slideBtnClick3 = (id, sl) => document.getElementById(id).addEventListener('click', () =>{ 
     sl(targetId3, speedAnimation)
     if(flag3){
+      icon4.style.transform = "rotate(180deg)"; 
         document.getElementById('triggerToggle3').style.borderRadius= "8px 8px 0px 0px"
         flag3= false
     }else{
+      icon4.style.transform = "rotate(0deg)"
         flag3 = true
         document.getElementById('triggerToggle3').style.borderRadius= "8px"
     }
@@ -321,14 +353,17 @@ slideBtnClick3('triggerToggle3', slideToggle);
 
 
 let targetId4 = document.getElementById("target4");
+let icon5 = document.getElementById('icon5')
 
 let flag4 = true
 let slideBtnClick4 = (id, sl) => document.getElementById(id).addEventListener('click', () =>{ 
     sl(targetId4, speedAnimation)
     if(flag4){
+      icon5.style.transform = "rotate(180deg)"; 
         document.getElementById('triggerToggle4').style.borderRadius= "8px 8px 0px 0px"
         flag4= false
     }else{
+      icon5.style.transform = "rotate(0deg)"
         flag4 = true
         document.getElementById('triggerToggle4').style.borderRadius= "8px"
     }

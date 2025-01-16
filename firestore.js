@@ -205,37 +205,8 @@ async function getUsersFeedback(db) {
     return feedbackData;
 }
 
-try {
-    let usersFeedbackData = await getUsersFeedback(db) 
-    usersFeedbackData.forEach(element => {
-    console.log(element,"sanjay kushwah");
-    
-    createPost(element)
-   
-});
-} catch (error) {
-     console.log(error,"user feedback");
-     
-}
 
-function createYouTubeIframe(videoURl) {
-    // Create the iframe element
-    const aspectRatio = 9 / 16;
-    const iframe = document.createElement('iframe');
-    iframe.width = '80%';
-    iframe.height = '70%';
-    iframe.style.borderRadius = '15px';
-    iframe.src = videoURl;
-    iframe.frameBorder = 0;
-    iframe.allowFullscreen = true;
-  
-    // Return the created iframe element
-    return iframe;
-  }
-
-
-
-function createPost(postData) {
+createPost  = (postData)=> {
     // Create the main container element
     const galleryReview =  document.getElementById('userFeedback')
   
@@ -306,6 +277,37 @@ function createPost(postData) {
   
    
   }
+
+
+try {
+    usersFeedbackData = await getUsersFeedback(db) 
+    usersFeedbackData.forEach(element => {
+    createPost(element)
+   
+});
+} catch (error) {
+     console.log(error,"user feedback");
+     
+}
+
+function createYouTubeIframe(videoURl) {
+    // Create the iframe element
+    const aspectRatio = 9 / 16;
+    const iframe = document.createElement('iframe');
+    iframe.width = '80%';
+    iframe.height = '70%';
+    iframe.style.borderRadius = '15px';
+    iframe.src = videoURl;
+    iframe.frameBorder = 0;
+    iframe.allowFullscreen = true;
+  
+    // Return the created iframe element
+    return iframe;
+  }
+
+
+
+  
 
  
 const youtubeIframe = createYouTubeIframe(videoId, width, height);
