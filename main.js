@@ -404,11 +404,11 @@ function scrollToDiv(divId) {
 
   const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('nav ul li a');
+const offset = 300; 
 
-window.addEventListener('scroll', () => {
-    let currentSection   
- = sections[0];
-    let currentScrollPosition = window.scrollY;
+function updateActiveLink()  {
+    let currentSection ;
+    let currentScrollPosition = window.scrollY + offset;
 
     sections.forEach(section => {
         if (section.offsetTop <= currentScrollPosition && section.offsetTop + section.offsetHeight > currentScrollPosition) {
@@ -423,7 +423,12 @@ window.addEventListener('scroll', () => {
             link.classList.remove('active');
         }
     });
-});
+}
+
+updateActiveLink();
+
+// Update during scrolling
+window.addEventListener('scroll', updateActiveLink);
 
 
 

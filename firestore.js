@@ -111,6 +111,10 @@ function createHospitalCard(data){
     innerContainer2.appendChild(overlayname);
      
     profileImage.style.cursor = 'pointer';
+    innerContainer.addEventListener('click', () => {
+        const newTabURL = data.hosUrl // Replace with the desired URL
+        window.open(newTabURL, '_blank'); // Open URL in a new tab
+    });
 //     innerContainer2.addEventListener('mouseover', () => {
 //         overlayname.style.cursor = 'pointer';
 //         overlay.style.visibility = 'visible';
