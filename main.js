@@ -123,12 +123,12 @@ scrollContainer.addEventListener("wheel", (evt) => {
 nextBtn.addEventListener("click", ()=>{
   
     scrollContainer.style.scrollBehavior = 'smooth';
-    scrollContainer.scrollLeft += 300;
+    scrollContainer.scrollLeft += 415;
 });
 
 backBtn.addEventListener("click", ()=>{
     scrollContainer.style.scrollBehavior = 'smooth';
-    scrollContainer.scrollLeft -= 300;
+    scrollContainer.scrollLeft -= 415;
 });
 
 let scrollContainer1 = document.querySelector('.galleryreview');
@@ -145,7 +145,8 @@ scrollContainer1.addEventListener("wheel", (evt) => {
 
 nextBtn1.addEventListener("click", () => {
   scrollContainer1.style.scrollBehavior = "smooth";
-  scrollContainer1.scrollLeft += 1900;
+  const scrollAmount = scrollContainer1.offsetWidth;
+  scrollContainer1.scrollLeft += scrollAmount;
 
   // Calculate the threshold for the second last element
   const secondLastThreshold =
@@ -167,7 +168,8 @@ nextBtn1.addEventListener("click", () => {
 
 backBtn1.addEventListener("click", ()=>{
     scrollContainer1.style.scrollBehavior = 'smooth';
-    scrollContainer1.scrollLeft -= 1900;
+    const scrollAmount = scrollContainer1.offsetWidth;
+    scrollContainer1.scrollLeft -= scrollAmount;
 });
 
 
@@ -183,12 +185,12 @@ scrollContainerHospital.addEventListener("wheel", (evt) => {
 
 nextBtnHospital.addEventListener("click", ()=>{
     scrollContainerHospital.style.scrollBehavior = 'smooth';
-    scrollContainerHospital.scrollLeft += 900;
+    scrollContainerHospital.scrollLeft += 415;
 });
 
 backBtnHospital.addEventListener("click", ()=>{
     scrollContainerHospital.style.scrollBehavior = 'smooth';
-    scrollContainerHospital.scrollLeft -= 900;
+    scrollContainerHospital.scrollLeft -= 415;
 });
 
 

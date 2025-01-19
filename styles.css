@@ -156,7 +156,7 @@
 }
 
 .bodydivv2{
-    display: flex;
+    
     margin-top: 150px;
 }
 html {
@@ -199,14 +199,14 @@ html {
 
 .bodydiv2text{
     display: flex;
-    flex: 70%;
+    flex: 50%;
     padding-right: 170px;
     flex-direction: column;
     justify-content: center;
 }
 
 .bodydiv2Image{
-    flex: 30%;
+    flex: 45%;
 }
 
 .border{
@@ -230,6 +230,7 @@ html {
     font-weight: 400;
     line-height: 29.05px;
     text-align: left;
+    color: #595959;
 
 }
 
@@ -556,7 +557,7 @@ text-align: center;
 
 .reviewText{
     font-family: Inter;
-font-size: 24px;
+font-size: 16px;
 font-weight: 400;
 line-height: 29.05px;
 text-align: center;
@@ -907,6 +908,11 @@ button#triggerToggle{
 
 }
 
+.welcomeText{
+    display: flex;
+    flex-direction: row;
+}
+
 /* .circle {
     width: 200px;
     height: 200px;
@@ -1068,7 +1074,7 @@ img:hover{
 }
 .card2{
     width: 240px;
-    height: 300px;
+    height: 325px;
     background-color: white;
     border-radius: 12px ;
     padding: 16px;
@@ -1225,7 +1231,7 @@ img:hover{
         color: #638251;
     }
     .reviewText{
-        font-size: 19px;
+        font-size: 15px;
      }
 
      .nameText{
@@ -1322,7 +1328,7 @@ img:hover{
     }
 
     .bodydivv2{
-        display: flex;
+        
         margin-top: 150px;
         flex-direction: column;
     }
@@ -1390,7 +1396,7 @@ img:hover{
     }
 
     .bodydiv2text{
-        flex: 70%;
+        flex: 50%;
         padding-right: 0px;
     }
 
@@ -1560,6 +1566,10 @@ img:hover{
     text-align: left;
 
 }
+.welcomeText{
+    display: flex;
+    flex-direction: column;
+}
 
 .heading{
   font-size: 23px;
@@ -1684,7 +1694,12 @@ img:hover{
     }
 
     .reviewText{
-       font-size: 19px;
+       font-size: 15px;
+    }
+
+    .welcomeText{
+        display: flex;
+        flex-direction: row;
     }
 
     .backButton{
