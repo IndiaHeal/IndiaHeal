@@ -226,8 +226,14 @@ createPost  = (postData)=> {
   
     const containerYoutube = document.createElement('div');
     containerYoutube.classList.add('youtubeI')
+    let iframe;
     // youtube video iframe
-    const iframe = createYouTubeIframe(postData.youtubeUrl)
+   try {
+    iframe = createYouTubeIframe(postData.youtubeUrl)
+   } catch (error) {
+    console.log(error);
+    
+   }
     containerYoutube.appendChild(iframe)
 
     innerContainer.appendChild(containerYoutube)
@@ -314,7 +320,49 @@ function createYouTubeIframe(videoURl) {
   
 
  
-const youtubeIframe = createYouTubeIframe(videoId, width, height);
+ 
+
+
+function createWelcomeCard(data){
+    
+    
+    let containerWelcome = document.getElementById('welcomeid')
+    data.forEach((text, index) => {
+        const paragraph = document.createElement("div");
+        paragraph.className = "paragarph";
+        
+        // Add conditional styling for certain paragraphs
+        if (index === 0 || index === 1) {
+            paragraph.style.marginBottom = "20px";
+        }
+        
+        // Set the text content of the paragraph
+        paragraph.textContent = text;
+
+        // Append the paragraph to the container
+        containerWelcome.appendChild(paragraph);
+    });
+    
+}
+
+
+async function welcome(db) {
+    const welcomeList = collection(db, 'Welcome');
+    const welcomeSnapeShot = await getDocs(welcomeList);
+    const welcomeData = welcomeSnapeShot.docs.map(doc => doc.data());
+    return welcomeData;
+}
+
+try {
+    let welcomeData = await welcome(db) 
+    welcomeData.forEach((data)=>{
+        createWelcomeCard(data.data)
+    })
+    
+} catch (error) {
+    console.log(error,"Services");
+    
+}
 
 
 

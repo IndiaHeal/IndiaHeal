@@ -407,22 +407,26 @@ const navLinks = document.querySelectorAll('nav ul li a');
 const offset = 300; 
 
 function updateActiveLink()  {
-    let currentSection ;
-    let currentScrollPosition = window.scrollY + offset;
+    try {
+      let currentSection ;
+      let currentScrollPosition = window.scrollY + offset;
 
-    sections.forEach(section => {
-        if (section.offsetTop <= currentScrollPosition && section.offsetTop + section.offsetHeight > currentScrollPosition) {
-            currentSection = section;
-        }
-    });
+      sections.forEach(section => {
+          if (section.offsetTop <= currentScrollPosition && section.offsetTop + section.offsetHeight > currentScrollPosition) {
+              currentSection = section;
+          }
+      });
 
-    navLinks.forEach(link => {
-        if (link.href.includes(currentSection.id)) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
+      navLinks.forEach(link => {
+          if (link.href.includes(currentSection.id)) {
+              link.classList.add('active');
+          } else {
+              link.classList.remove('active');
+          }
+      });
+    } catch (error) {
+      
+    }
 }
 
 updateActiveLink();
